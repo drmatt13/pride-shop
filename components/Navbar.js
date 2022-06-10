@@ -39,6 +39,7 @@ const Navbar = ({ setCart, setLoginModal }) => {
               width={50}
               height={50}
               className="cursor-pointer"
+              alt="logo"
             />
             <div className="relative group ml-5 smaller:ml-6 cursor-pointer text-xs smaller:text-sm sm:text-lg leading-4 translate-y-1 hover:text-gray-900 transition-colors">
               <div>Pride Shop</div>

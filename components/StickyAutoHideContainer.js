@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 const Navbar = ({ parentRef, children }) => {
   const [isOpen, setIsOpen] = useState(true);
@@ -9,48 +9,60 @@ const Navbar = ({ parentRef, children }) => {
   const prevDirection = useRef("up");
   const Y = useRef(0);
 
-  const scrollHandler = (e) => {
-    if (e.target.scrollTop === 0) {
-      setIsBlock(false);
-      setIsOpen(true);
-      stickyRef.current = true;
-      prevY.current = 0;
-      Y.current = 0;
-      return;
-    } else if (e.target.scrollTop < scrollDistance) {
-      if (stickyRef.current !== true) {
-        setIsBlock(true);
+  const scrollHandler = useCallback(
+    (e) => {
+      if (e.target.scrollTop === 0) {
+        setIsBlock(false);
+        setIsOpen(true);
+        stickyRef.current = true;
+        prevY.current = 0;
+        Y.current = 0;
+        return;
+      } else if (e.target.scrollTop < scrollDistance) {
+        if (stickyRef.current !== true) {
+          setIsBlock(true);
+        }
+        return;
       }
-      return;
-    }
-    if (e.target.scrollTop <= prevY.current) {
-      if (prevDirection.current !== "up") {
-        Y.current = e.target.scrollTop;
-        prevDirection.current = "up";
+      if (e.target.scrollTop <= prevY.current) {
+        if (prevDirection.current !== "up") {
+          Y.current = e.target.scrollTop;
+          prevDirection.current = "up";
+        }
+      } else {
+        if (prevDirection.current !== "down") {
+          Y.current = e.target.scrollTop;
+          prevDirection.current = "down";
+        }
       }
-    } else {
-      if (prevDirection.current !== "down") {
-        Y.current = e.target.scrollTop;
-        prevDirection.current = "down";
+      if (e.target.scrollTop - Y.current > scrollDistance * 3.5) {
+        setIsOpen(false);
+        stickyRef.current = false;
       }
-    }
-    if (e.target.scrollTop - Y.current > scrollDistance * 3.5) {
-      setIsOpen(false);
-      stickyRef.current = false;
-    }
-    if (e.target.scrollTop - Y.current < -scrollDistance * 3) {
-      setIsOpen(true);
-      stickyRef.current = true;
-    }
-    prevY.current = e.target.scrollTop;
-  };
+      if (e.target.scrollTop - Y.current < -scrollDistance * 3) {
+        setIsOpen(true);
+        stickyRef.current = true;
+      }
+      prevY.current = e.target.scrollTop;
+    },
+    [
+      scrollDistance,
+      setIsBlock,
+      setIsOpen,
+      stickyRef,
+      Y,
+      prevY,
+      prevDirection,
+      scrollDistance,
+    ]
+  );
 
   useEffect(() => {
     parentRef.current.addEventListener("scroll", scrollHandler);
     return () => {
       parentRef.current.removeEventListener("scroll", scrollHandler);
     };
-  }, []);
+  }, [parentRef, scrollHandler]);
 
   return (
     <div
