@@ -45,16 +45,7 @@ const Navbar = ({ parentRef, children }) => {
       }
       prevY.current = e.target.scrollTop;
     },
-    [
-      scrollDistance,
-      setIsBlock,
-      setIsOpen,
-      stickyRef,
-      Y,
-      prevY,
-      prevDirection,
-      scrollDistance,
-    ]
+    [scrollDistance, setIsBlock, setIsOpen, stickyRef, Y, prevY, prevDirection]
   );
 
   useEffect(() => {
