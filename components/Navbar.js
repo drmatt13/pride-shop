@@ -31,7 +31,7 @@ const Navbar = ({ setCart, setLoginModal }) => {
           ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         }
       `}</style>
-      <nav className="bg-white border-b border-black/10 shadow noselect">
+      <nav className="bg-white shadow noselect">
         <div className="h-20 flex justify-between mx-6 sm:mx-8 lg:mx-10">
           <div className="flex items-center">
             <Image
@@ -52,17 +52,19 @@ const Navbar = ({ setCart, setLoginModal }) => {
           </div>
           <div className="flex items-center text-xs smaller:text-sm sm:text-base leading-4 translate-y-1">
             <div className="relative group mr-7 hover:text-gray-900 transition-colors">
-              <div className="cursor-pointer">shop</div>
-
-              <div className="absolute -left-2 sm:-left-3 h-0 group-hover:h-[6.25rem] sm:group-hover:h-[7.5rem] group-hover:border-x opacity-0 group-hover:opacity-100 min-w-[7rem] bg-white flex flex-col overflow-hidden transition-all ease-out shadow-xl rounded duration-300">
-                <div className="pt-3 pb-1.5 pl-3 pr-4 cursor-pointer hover:bg-gray-100">
-                  Tops
-                </div>
-                <div className="py-2 pl-3 pr-4 cursor-pointer hover:bg-gray-100">
-                  Bottoms
-                </div>
-                <div className="pt-1.5 pb-3 pl-3 pr-4 cursor-pointer hover:bg-gray-100">
-                  accessories
+              <div className="cursor-pointer z-10">shop</div>
+              <div className="absolute -left-2 sm:-left-3 bottom-0 group-hover:h-6 w-20 -z-10" />
+              <div className="absolute -left-2 sm:-left-3 pt-2 pointer-events-none group-hover:pointer-events-auto">
+                <div className="h-0 group-hover:h-[5.75rem] sm:group-hover:h-[7.25rem] opacity-0 group-hover:opacity-100 min-w-[7rem] bg-white/75 backdrop-blur-lg flex flex-col overflow-hidden transition-all ease-out shadow-xl rounded duration-300">
+                  <div className="pt-2 pb-1.5 pl-3 pr-4 cursor-pointer hover:bg-gray-600/20 transition-colors">
+                    Tops
+                  </div>
+                  <div className="py-2 pl-3 pr-4 cursor-pointer hover:bg-gray-600/20 transition-colors">
+                    Bottoms
+                  </div>
+                  <div className="pt-1.5 pb-2 pl-3 pr-4 cursor-pointer hover:bg-gray-600/20 transition-colors">
+                    accessories
+                  </div>
                 </div>
               </div>
             </div>
