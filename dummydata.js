@@ -1,0 +1,49 @@
+export default [
+  {
+    "name": "shirt1",
+    "price": "20",
+    "sale price": "15",
+    "description":
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "colors": {
+      "default": {
+        "imgs": [
+          "1.jpg",
+          "2.jpg",
+        ],
+        "sizes": {
+          "xs": 5,
+          "s": 7,
+          "m": 8,
+          "l": 9,
+          "xl": 10,
+        }
+      },
+      "white": {
+        "imgs": [
+          "1.jpg",
+          "2.jpg",
+        ],
+        "sizes": {
+          "xs": 5,
+          "s": 7,
+          "m": 8,
+          "l": 9,
+          "xl": 10,
+        }
+    }
+    // productImages: [
+    //   "1.jpg",
+    //   "2.jpg",
+    //   "3.jpg",
+    // ],
+    // productSizes: ["S", "M", "L", "XL"],
+    // productColors: ["#fc5c7d", "#6a82fb"],
+    // productQuantity: {
+    //   S: 10,
+    //   M: 10,
+    //   L: 10,
+    //   XL: 10,
+    // },
+  },
+];
