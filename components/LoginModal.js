@@ -16,7 +16,7 @@ const LoginModal = ({ loginModal, setLoginModal }) => {
       <div
         className={`${
           loginModal ? "opacity-100" : "opacity-0"
-        } py-3 flex flex-col w-52 bg-white/50 backdrop-blur-lg transition-opacity duration-300 ease-out rounded-lg`}
+        } pt-3 pb-1 flex flex-col w-52 bg-white/50 backdrop-blur-lg transition-opacity duration-300 ease-out rounded-lg`}
       >
         <div className="text-center underline">Login</div>
         <form>
@@ -35,14 +35,32 @@ const LoginModal = ({ loginModal, setLoginModal }) => {
             />
             <input
               type="submit"
-              value="SEND"
+              value="SIGN IN"
               className="mb-2 bg-pink-500 text-white text-sm font-bold py-2 w-[90%] rounded cursor-pointer hover:bg-pink-400"
             />
           </div>
-          <div className="flex justify-center">
-            <a className="px-4 text-xs underline text-black cursor-pointer">
-              register for an account
-            </a>
+          <div className="mx-auto text-center mb-1.5 bg-purple-500 text-white text-sm font-bold py-2 w-[90%] rounded cursor-pointer hover:bg-purple-400">
+            REGISTER
+          </div>
+          <div className="text-center mb-1.5">or</div>
+          <div className="px-2 flex flex-col text-xs /[&>div]:shadow [&>div]:cursor-pointer [&>div]:rounded [&>div]:text-center [&>div]:py-1 [&>div]:mb-2">
+            <div className="bg-white flex justify-center">
+              <span className="flex justify-center items-center">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+                  className="h-[.75rem] mr-1.5"
+                />
+              </span>
+              Continue with Google
+            </div>
+            <div className="bg-white">
+              <i className="devicon-apple-original mr-1.5" />
+              Continue with Apple
+            </div>
+            <div className="bg-white">
+              <i className="devicon-facebook-plain mr-1.5 text-blue-600" />
+              Continue with Facebook
+            </div>
           </div>
         </form>
       </div>
